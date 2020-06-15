@@ -1,0 +1,320 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$primary-lime-green: hsl(163, 72%, 41%);
+$primary-bright-red: hsl(356, 69%, 56%);
+$facebook: hsl(208, 92%, 53%);
+$twitter: hsl(203, 89%, 53%);
+$instagram: linear-gradient(135deg, #fdc263, #df4996);
+$youtube: hsl(348, 97%, 39%);
+$toogle-dark-theme: linear-gradient(#378fe6, #3eda82);
+$toogle-light-theme: hsl(230, 22%, 74%);
+
+html {
+  height: 100vh;
+  --bg-container: hsl(0, 0%, 100%);
+  --bg-container-top: hsl(225, 100%, 98%);
+  --bg-card: hsl(227, 47%, 96%);
+  --desaturated-text: hsl(228, 12%, 44%);
+  --color-text: hsl(230, 17%, 14%);
+  --bg-hover: #e1e3f0;
+}
+
+h1,
+h2,
+h5,
+span,
+p {
+  &::selection {
+    background: transparent;
+  }
+}
+
+html[data-theme="dark"] {
+  --bg-container: hsl(230, 17%, 14%);
+  --bg-container-top: hsl(232, 19%, 15%);
+  --bg-card: hsl(228, 28%, 20%);
+  --desaturated-text: hsl(228, 34%, 66%);
+  --color-text: hsl(0, 0%, 100%);
+  --bg-hover: #333a56;
+}
+
+body {
+  height: 100vh;
+  width: 75vw;
+  font-family: "Inter", sans-serif;
+  margin: 0 auto;
+  background: var(--bg-container);
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    background: var(--bg-container-top);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 69vh;
+    z-index: -1;
+  }
+}
+
+h2 {
+  color: var(--color-text);
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+
+  .title {
+    h1 {
+      color: var(--color-text);
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h5 {
+      color: var(--desaturated-text);
+      font-size: 0.725rem;
+    }
+  }
+
+  .dark_mode {
+    display: flex;
+    align-items: center;
+
+    p {
+      font-weight: bold;
+      font-size: 1rem;
+      color: var(--desaturated-text);
+    }
+
+    input[type="checkbox"] {
+      height: 0;
+      width: 0;
+      visibility: hidden;
+
+      &:checked + label {
+        background: $toogle-light-theme;
+      }
+
+      &:checked + label::after {
+        left: calc(100% - 5px);
+        transform: translateX(-100%);
+      }
+    }
+
+    label {
+      cursor: pointer;
+      text-indent: -9999px;
+      width: 52px;
+      height: 27px;
+      background: $toogle-dark-theme;
+      float: right;
+      border-radius: 100px;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        border-radius: 90px;
+        transition: 0.3s;
+      }
+
+      &:active::after {
+        width: 15px;
+      }
+    }
+  }
+}
+
+section {
+  &.profile {
+    display: grid;
+    grid-template-columns: repeat(4, 230px);
+    grid-template-rows: auto;
+    column-gap: 5px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+
+    .profile_content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card);
+      padding: 1rem;
+      border-radius: 4px;
+      border-top: 3px solid $facebook;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+      &:hover {
+        transform: translateY(-2px);
+        background: var(--bg-hover);
+      }
+
+      &:nth-child(2) {
+        border-top: 3px solid $twitter;
+      }
+
+      &:nth-child(3) {
+        border-top: 3px solid transparent;
+        border-image: $instagram 1;
+      }
+
+      &:nth-child(4) {
+        border-top: 3px solid $youtube;
+      }
+
+      .profile_content_name {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding-bottom: 1rem;
+        color: var(--desaturated-text);
+        padding: 1rem 0;
+        font-size: 0.875rem;
+
+        img {
+          margin-right: 0.3rem;
+        }
+      }
+
+      .profile_content_flowers_number {
+        color: var(--color-text);
+        font-size: 3rem;
+      }
+
+      .profile_content_flowers {
+        text-transform: uppercase;
+        font-weight: 400;
+        letter-spacing: 4px;
+        color: var(--desaturated-text);
+      }
+
+      .profile_content_days {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $primary-lime-green;
+        font-size: 0.8rem;
+        font-weight: bold;
+        margin: 1.5rem 0 0.5rem 0;
+
+        img {
+          margin-right: 0.3rem;
+        }
+      }
+      .down {
+        color: $primary-bright-red;
+      }
+    }
+  }
+
+  &.overview {
+    display: grid;
+    grid-template-columns: repeat(4, 230px);
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 0;
+
+    .overview_card {
+      background: var(--bg-card);
+      border-radius: 4px;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+      &:hover {
+        transform: translateY(-1px);
+        background: var(--bg-hover);
+        cursor: pointer;
+      }
+
+      .overview_card_content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+
+        .overview_card_content_left {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          p {
+            color: var(--desaturated-text);
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin: 0.9rem 0;
+            margin-bottom: 28px;
+            width: 100%;
+          }
+
+          span {
+            font-size: 1.8rem;
+            color: var(--color-text);
+            font-weight: bold;
+            width: 100%;
+          }
+        }
+        .overview_card_content_right {
+          display: flex;
+          flex-direction: column-reverse;
+          align-items: center;
+
+          .overview_card_content_right_icon {
+            margin-bottom: 0.9rem;
+            cursor: pointer;
+          }
+
+          .overview_card_content_right_porcent {
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            color: $primary-lime-green;
+            font-weight: bold;
+          }
+          .red {
+            color: $primary-bright-red;
+          }
+        }
+      }
+    }
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  color: var(--color-text);
+
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+}
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 0.5s ;
+  transition-delay: 0 ;
+}
+
+@import "responsive";

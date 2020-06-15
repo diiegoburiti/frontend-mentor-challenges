@@ -1,0 +1,67 @@
+$display-small: 415px;
+$display-medium: 768px;
+$display-desktop: 1440px;
+
+@media screen and (min-width: $display-medium) {
+  .user-quote {
+    font-size: 1.5rem;
+    margin: 0 -9rem 0 0;
+  }
+
+  .slider {
+    margin: -90px 0 25px 140px;
+  }
+}
+
+@media screen and (min-width: $display-desktop) {
+  .user-quote {
+    font-size: 2rem;
+    margin: 0 -13rem 0 0;
+  }
+}
+
+@media screen and (min-width: $display-small) {
+  body {
+    background-size: 40%;
+  }
+
+  section.main {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .user-testimonial {
+    flex-direction: row-reverse;
+    width: 70%;
+
+    div.group {
+      width: 50%;
+    }
+  }
+
+  .user-picture {
+    background-size: 100%;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 2rem;
+
+    img {
+      max-width: 600px;
+      height: auto;
+      margin: 2rem auto;
+    }
+  }
+
+  .user-quote {
+    text-align: left;
+    font-size: 1.5rem;
+    margin: 0 -13rem 0 0;
+  }
+
+  .user-tag {
+    flex-direction: row;
+    align-items: start;
+    padding-left: 1.5rem;
+  }
+}

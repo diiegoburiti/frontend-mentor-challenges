@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+$desatured-red: #ce9797;
+$soft-red: #f96262;
+$neutral-red: #413a3a;
+$gradient-white: linear-gradient(135deg, #fff, #fff5f5);
+$gradient-red: linear-gradient(135deg, #f8bfbf, #ee8c8c);
+
+.container {
+  background: $gradient-white;
+  max-width: 85vw;
+  height: 100vh;
+  max-height: 510px;
+  margin: 0 auto;
+  font-family: "Josefin Sans", sans-serif;
+  display: grid;
+  grid-template-columns: 2fr, 1fr;
+  grid-template-areas:
+    "wrapper  hero"
+    "wrapper hero"
+    "footer footer";
+  margin-top: 4rem;
+
+  &::after {
+    background: url(../images/bg-pattern-desktop.svg) no-repeat center center;
+  }
+
+  header {
+    grid-area: wrapper;
+    margin: 40px 0 80px 0;
+    margin-left: 5rem;
+    img {
+      width: 25%;
+    }
+  }
+  main {
+    margin: 10rem 0;
+    grid-area: wrapper;
+    margin-left: 5rem;
+
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.4;
+      text-transform: uppercase;
+      color: $neutral-red;
+      letter-spacing: 10px;
+
+      span {
+        font-weight: 100;
+        color: $desatured-red;
+      }
+    }
+
+    p {
+      width: 60%;
+      margin: 1rem 0;
+      color: $desatured-red;
+    }
+
+    form {
+      position: relative;
+      width: 55%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      input {
+        flex: 1;
+        border: 1px solid $desatured-red;
+        padding: 15px;
+        border-radius: 18px;
+        width: 75px;
+        position: relative;
+        color: $neutral-red;
+
+        &::placeholder {
+          color: $desatured-red;
+        }
+      }
+
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 90%;
+        width: 75px;
+        height: 48px;
+        border-radius: 18px;
+        border: none;
+        background: $gradient-red;
+        cursor: pointer;
+        box-shadow: 1px 1px 2px 0px rgba(249, 98, 98, 1);
+        transition: .3s;
+
+        &:hover {
+          background-color: $desatured-red;
+          transform: scaleY(1.1);
+        }
+      }
+
+      small {
+        color: #e74c3c;
+        position: absolute;
+        top: 55px;
+        left: 40px;
+        visibility: hidden;
+      }
+
+      .error {
+        small {
+          visibility: visible;
+        }
+      }
+
+      .icon-error {
+        background: url(../images/icon-error.svg) no-repeat;
+        width: 50px;
+        height: 50px;
+        color: #e74c3c;
+        position: absolute;
+        top: 22%;
+        left: 80%;
+        visibility: hidden;
+        transition: .3s;
+      }
+    }
+  }
+
+  section {
+    grid-area: hero;
+    .mobile {
+      display: none;
+    }
+  }
+
+  footer {
+    grid-area: footer;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    max-width: 100vw;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "hero"
+      "wrapper"
+      "footer";
+
+    header {
+      width: 100vw;
+      grid-area: header;
+      margin: 20px 0;
+      padding: 20px;
+      img {
+        width: 50%;
+      }
+    }
+
+    main {
+      margin: 0 auto;
+      max-width: 100%;
+      grid-area: wrapper;
+      flex-direction: column;
+
+      h1 {
+        text-align: center;
+        margin: 2rem 0 1rem 0;
+      }
+
+      p {
+        width: 100%;
+        text-align: center;
+        padding: 0 1.5rem 1rem 1.5rem;
+        color: $desatured-red;
+        line-height: 1.5;
+      }
+
+      form {
+        margin: 1rem auto 3rem auto;
+        width: 68%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        button {
+          left: 80%;
+        }
+
+        .icon-error {
+          position: absolute;
+          top: 22%;
+          left: 70%;
+          visibility: hidden;
+          transition: .3s;
+        }
+      }
+    }
+
+    section {
+      grid-area: hero;
+      .desktop {
+        display: none;
+      }
+      .mobile {
+        display: block;
+      }
+    }
+    footer {
+      grid-area: footer;
+    }
+  }
+}

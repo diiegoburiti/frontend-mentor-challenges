@@ -1,0 +1,124 @@
+$display-mobile: 375px;
+
+@media (max-width: $display-mobile) {
+  body {
+    width: 90vw;
+    overflow: auto;
+
+    &::after {
+      bottom: 74vh;
+    }
+  }
+
+  h2 {
+    color: var(--color-text);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  header {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .title {
+      width: 100%;
+      &::after {
+        display: block;
+        content: '';
+        border-bottom: 1px solid var(--desaturated-text);
+        margin: 1rem 0;
+        width: 100%;
+        height: 10px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      h5 {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .dark_mode {
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        font-weight: bold;
+        font-size: 1rem;
+        color: var(--desaturated-text);
+      }
+
+      input[type="checkbox"] {
+        height: 0;
+        width: 0;
+        visibility: hidden;
+
+        &:checked + label {
+          background: $toogle-light-theme;
+        }
+
+        &:checked + label::after {
+          left: calc(100% - 5px);
+          transform: translateX(-100%);
+        }
+      }
+
+      label {
+        cursor: pointer;
+        text-indent: -9999px;
+        width: 52px;
+        height: 27px;
+        background: $toogle-dark-theme;
+        float: right;
+        border-radius: 100px;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 3px;
+          left: 3px;
+          width: 20px;
+          height: 20px;
+          background-color: white;
+          border-radius: 90px;
+          transition: 0.3s;
+        }
+
+        &:active::after {
+          width: 15px;
+        }
+      }
+    }
+  }
+
+  section {
+    &.profile {
+      grid-template-columns: 1fr;
+      row-gap: 20px;
+      flex-flow: column wrap;
+      margin-bottom: 1rem;
+
+      .profile_content {
+        .profile_content_flowers_number {
+          font-size: 3.5rem;
+        }
+      }
+    }
+
+    &.overview {
+      display: grid;
+      grid-template-columns:  1fr;
+      row-gap: 20px;
+      align-items: center;
+      justify-content: center;
+      flex-flow: column wrap;
+      margin: 2rem 0;
+    }
+  }
+}
