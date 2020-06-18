@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-red: hsl(0, 78%, 62%);
+  --primary-cyan: hsl(180, 62%, 55%);
+  --primary-orange: hsl(34, 97%, 64%);
+  --primary-blue: hsl(212, 86%, 64%);
+
+  --neutral-very-dark-blue: hsl(234, 12%, 34%);
+  --neutral-grayish-blue: hsl(229, 6%, 66%);
+  --neutral-very-light-gray: hsl(0, 0%, 98%);
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  height: 100vh;
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  color: var(--neutral-very-dark-blue);
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header-section"
+    "card-section";
+  grid-gap: 10px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header-section {
+  grid-area: header-section;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.header-contents {
+  justify-content: space-evenly;
+  padding: 0 28rem;
+}
+
+.primary,
+.secondary,
+.header-contents p {
+  text-align: center;
+}
+
+.primary {
+  font-weight: 200;
+  font-size: 240%;
+  color: var(--neutral-grayish-blue);
+}
+
+.secondary {
+  font-weight: 600;
+  font-size: 235%;
+  padding-bottom: 10px;
+}
+
+.header-contents p {
+  font-weight: 400;
+  color: var(--neutral-grayish-blue);
+  line-height: 1.4;
+}
+
+.card-section {
+  grid-area: card-section;
+  display: grid;
+  height: 100%;
+  grid-template-columns: repeat(3, 300px);
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    ".... team ...."
+    "lead team calc"
+    "lead karma calc"
+    ".... karma ....";
+  justify-content: center;
+  align-items: center;
+  grid-gap: 35px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card {
+  box-shadow: 5px 10px 10px hsla(229, 6%, 66%, 0.075), -5px 10px 10px hsla(229, 6%, 66%, 0.075),
+    0 2px 4px hsla(229, 6%, 66%, 0.253);
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: .875rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  line-height: 1.5;
+}
+
+.card h2 {
+  padding-bottom: 15px;
+}
+
+.card p {
+  color: var(--neutral-grayish-blue);
+}
+
+.card.lead {
+  grid-area: lead;
+  border-top: 4px solid var(--primary-cyan);
+}
+
+.card.team {
+  grid-area: team;
+  border-top: 4px solid var(--primary-red);
+}
+
+.card.karma {
+  grid-area: karma;
+  border-top: 4px solid var(--primary-orange);
+}
+
+.card.calc {
+  grid-area: calc;
+  border-top: 4px solid var(--primary-blue);
+}
+
+.image-row  {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+@media only screen and (max-width: 375px) {
+  .container {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 1fr 4fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header-section"
+      "card-section";
+      justify-content: center;
+      align-items: center;
+    grid-gap: 10px;
+    width: 100vw;
+    margin: 0 auto;
+  }
+
+  .header-section {
+    margin: 3rem 0;
+  }
+
+  .header-contents {
+    grid-area: header-section;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    line-height: 1.5;
+  }
+  .primary,
+  .secondary {
+    font-size: 24px;
+    display: flex;
+    padding: 0 10px;
+  }
+  
+  div p {
+    padding-top: 15px;
+  }
+  
+  .card-section {
+    grid-area: card-section;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "lead"
+      "team"
+      "karma"
+      "calc";
+      align-items: center;
+      flex-flow: column wrap;
+    grid-column-gap: 30px;
+  }
+
+  .card {
+    width: 90vw;
+    margin: 0 auto;
+  }
+}
