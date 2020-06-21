@@ -12,5 +12,8 @@ A repository with frontend challenges completed from  [Frontend - Mentor](https:
 
 [Four Card](https://diiegoburiti.github.io/frontend-mentor-challenges/four-card-feature-section-master/).
 
+[Insure Landing](https://diiegoburiti.github.io/frontend-mentor-challenges/insure-landing/).
+
+
 
 
