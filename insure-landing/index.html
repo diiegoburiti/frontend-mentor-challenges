@@ -7,8 +7,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <title>Frontend Mentor | Insure landing page</title>
   <style>
     .attribution {
@@ -23,8 +23,10 @@
 </head>
 
 <body>
-
   <nav class="nav">
+    <a class="nav_mobile">
+      <i class="fa fa-bars"></i>
+    </a>
     <figure>
       <img src="assets/images/logo.svg" alt="logo">
     </figure>
@@ -48,7 +50,12 @@
         <button>View plans</button>
       </div>
       <div class="header_img">
-        <img src="assets/images/image-intro-desktop.jpg" alt="header">
+        <div class="desktop">
+          <img src="assets/images/image-intro-desktop.jpg" alt="header">
+        </div>
+        <div class="mobile">
+          <img src="assets/images/image-intro-mobile.jpg" alt="header">
+        </div>
       </div>
     </div>
   </header>

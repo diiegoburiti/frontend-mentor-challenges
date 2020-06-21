@@ -37,7 +37,7 @@ body {
   height: 40px;
   cursor: pointer;
   color: $very-dark-violet;
-  font-weight: 400;
+  font-weight: bold;
   text-transform: uppercase;
   transition: 0.3s;
   box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
@@ -94,7 +94,7 @@ body {
 
     .nav_btn {
       @include btnPage();
-      border: 1px solid $very-dark-violet;
+      border: 2px solid $very-dark-violet;
       background: $very-ligh-gray;
 
       &:hover {
@@ -163,9 +163,14 @@ body {
 
   .header_img {
     flex: 1;
-    img {
-      transform: translateY(100px);
-      height: 500px;
+    .desktop {
+      img {
+        transform: translateY(100px);
+        height: 500px;
+      }
+    }
+    .mobile {
+      display: none;
     }
   }
 }
@@ -249,7 +254,7 @@ section {
     button {
       @include btnPage();
       background: transparent;
-      border: 1px solid $very-ligh-gray;
+      border: 2px solid $very-ligh-gray;
       color: $very-ligh-gray;
       margin-right: 5rem;
 
@@ -271,7 +276,7 @@ footer {
     align-items: center;
     height: 120px;
     padding: 1rem 0;
-    border-bottom: 1px solid $dark-grayish-violet;
+    border-bottom: 2px solid $dark-grayish-violet;
 
     figure {
       display: block;
